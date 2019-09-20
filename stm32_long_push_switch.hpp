@@ -21,7 +21,7 @@ class Stm32LongPushSwitch {
   public:
     Stm32LongPushSwitch(GPIO_TypeDef *, uint16_t, GPIO_PinState, unsigned int);
     ~Stm32LongPushSwitch();
-    week void event_callback();      // スイッチ長押しした時に呼ばれる関数
+    void event_callback();      // スイッチ長押しした時に呼ばれる関数
                                      // ユーザーが定義する
     static void interrupt_handler(); // 割り込みハンドラ
                                      // TIM割り込み関数の中でコール
