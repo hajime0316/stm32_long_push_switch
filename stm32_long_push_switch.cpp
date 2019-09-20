@@ -45,11 +45,11 @@ Stm32LongPushSwitch::~Stm32LongPushSwitch()
     }
 }
 
-week void Stm32LongPushSwitch::event_callback()
+__weak void Stm32LongPushSwitch::event_callback()
 {
 }
 
-static void Stm32LongPushSwitch::interrupt_handler()
+void Stm32LongPushSwitch::interrupt_handler()
 {
 }
 
