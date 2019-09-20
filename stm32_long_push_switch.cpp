@@ -5,7 +5,7 @@
  *      Author: hajime
  */
 
-#include "stm32_long_press_switch.hpp"
+#include "stm32_long_push_switch.hpp"
 
 Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_pin, GPIO_PinState switch_state_when_push, unsigned int time_count_param)
 {
