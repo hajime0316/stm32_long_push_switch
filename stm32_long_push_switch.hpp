@@ -32,7 +32,7 @@ class Stm32LongPushSwitch {
     // 割り込みルーチンの中で使う．
     Stm32LongPushSwitch *previous_instance_p_;              // 自身の前に生成されたインスタンスへのポインタ
                                                             // 前のインスタンスがない場合はnull
-    static Stm32LongPushSwitch *last_instance_p_ = nullptr; // 最後に生成したインスタンスへのポインタ
+    static Stm32LongPushSwitch *last_instance_p_; // 最後に生成したインスタンスへのポインタ
 
     // interrupt_handler関数から呼び出される関数
     void interrupt_routine();

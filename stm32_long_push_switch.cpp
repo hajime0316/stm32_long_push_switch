@@ -7,6 +7,8 @@
 
 #include "stm32_long_push_switch.hpp"
 
+Stm32LongPushSwitch *Stm32LongPushSwitch::last_instance_p_ = nullptr;
+
 Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_pin, GPIO_PinState switch_state_when_push, unsigned int time_count_param)
 {
     // 内部変数の初期化
@@ -57,5 +59,6 @@ void Stm32LongPushSwitch::set_time_count_param(unsigned int time_count_param)
 {
 }
 
-void interrupt_routine() {
+void interrupt_routine()
+{
 }
