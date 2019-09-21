@@ -15,7 +15,7 @@ Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_
     gpio_port_ = gpio_port;
     gpio_port_ = gpio_port;
     time_count_param_ = time_count_param;
-    GPIO_PinState switch_state_when_push_ = switch_state_when_push;
+    switch_state_when_push_ = switch_state_when_push;
     time_count_ = 0;
     is_time_out_ = 0;
 
