@@ -18,15 +18,15 @@ class Stm32LongPushSwitch {
     unsigned int time_count_;
     GPIO_PinState switch_state_when_push_;
     int is_time_out_;
+    void (*callback_func_)();
 
   public:
     Stm32LongPushSwitch(GPIO_TypeDef *, uint16_t, GPIO_PinState, unsigned int);
     ~Stm32LongPushSwitch();
-    void event_callback();           // スイッチ長押しした時に呼ばれる関数
-                                     // ユーザーが定義する
     static void interrupt_handler(); // 割り込みハンドラ
                                      // TIM割り込み関数の中でコール
     void set_time_count_param(unsigned int);
+    void set_event_callback(void (*)());
 
   private:
     // 全インスタンスにアクセスするためのポインタ．

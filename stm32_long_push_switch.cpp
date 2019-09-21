@@ -48,10 +48,11 @@ Stm32LongPushSwitch::~Stm32LongPushSwitch()
     }
 }
 
-__weak void Stm32LongPushSwitch::event_callback()
+void Stm32LongPushSwitch::set_event_callback(void (*callback_func)())
 {
-    // デフォルトでは何もしない
-    // ユーザー側で定義する
+    callback_func_ = callback_func;
+    
+    return;
 }
 
 void Stm32LongPushSwitch::interrupt_handler()
@@ -78,7 +79,7 @@ void Stm32LongPushSwitch::interrupt_routine()
     if (HAL_GPIO_ReadPin(gpio_port_, gpio_pin_) == switch_state_when_push_) {
         if (time_count_ >= time_count_param_ && !is_time_out_) {
             time_count_ = 0;
-            event_callback();
+            callback_func_();
             is_time_out_ = 1;
         }
         else {
