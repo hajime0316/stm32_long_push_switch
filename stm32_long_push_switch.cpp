@@ -83,4 +83,6 @@ void Stm32LongPushSwitch::interrupt_routine()
         time_count_ = 0;
         is_time_out_ = 1;
     }
+
+    return;
 }
