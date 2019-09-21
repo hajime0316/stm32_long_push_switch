@@ -17,6 +17,7 @@ Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_
     time_count_param_ = time_count_param;
     GPIO_PinState switch_state_when_push_ = switch_state_when_push;
     time_count_ = 0;
+    is_time_out_ = 0;
 
     // pointerの初期化
     previous_instance_p_ = last_instance_p_;
@@ -62,6 +63,24 @@ void Stm32LongPushSwitch::set_time_count_param(unsigned int time_count_param)
     time_count_param_ = time_count_param;
 }
 
-void interrupt_routine()
+// Private function
+
+void Stm32LongPushSwitch::interrupt_routine()
 {
+    if (HAL_GPIO_ReadPin(gpio_port_, gpio_pin_) == switch_state_when_push_)
+    {
+        if (time_count_ >= time_count_param_ && !is_time_out_)
+        {
+            time_count_ = 0;
+            event_callback();
+            is_time_out_ = 1;
+        }
+        else {
+            time_count_++;
+        }
+    }
+    else {
+        time_count_ = 0;
+        is_time_out_ = 1;
+    }
 }
