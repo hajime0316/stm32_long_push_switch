@@ -62,6 +62,8 @@ void Stm32LongPushSwitch::set_time_count_param(unsigned int time_count_param)
     time_count_param_ = time_count_param;
 }
 
+// Private function
+
 void interrupt_routine()
 {
 }
