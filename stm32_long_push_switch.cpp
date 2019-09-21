@@ -48,10 +48,9 @@ Stm32LongPushSwitch::~Stm32LongPushSwitch()
     }
 }
 
-__weak void Stm32LongPushSwitch::event_callback()
+void Stm32LongPushSwitch::set_event_callback(void (*call_back_func)())
 {
-    // デフォルトでは何もしない
-    // ユーザー側で定義する
+    
 }
 
 void Stm32LongPushSwitch::interrupt_handler()
