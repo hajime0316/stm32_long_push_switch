@@ -17,6 +17,7 @@ class Stm32LongPushSwitch {
     unsigned int time_count_param_;
     unsigned int time_count_;
     GPIO_PinState switch_state_when_push_;
+    int is_time_out_;
 
   public:
     Stm32LongPushSwitch(GPIO_TypeDef *, uint16_t, GPIO_PinState, unsigned int);
