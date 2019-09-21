@@ -27,6 +27,7 @@ class Stm32LongPushSwitch {
     static void interrupt_handler(); // 割り込みハンドラ
                                      // TIM割り込み関数の中でコール
     void set_time_count_param(unsigned int);
+    void set_event_callback(void (*)());
 
   private:
     // 全インスタンスにアクセスするためのポインタ．
