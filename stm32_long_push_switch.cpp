@@ -56,6 +56,11 @@ __weak void Stm32LongPushSwitch::event_callback()
 
 void Stm32LongPushSwitch::interrupt_handler()
 {
+    if(last_instance_p_ == nullptr) return;
+
+    last_instance_p_->interrupt_routine();
+
+    return;
 }
 
 void Stm32LongPushSwitch::set_time_count_param(unsigned int time_count_param)
