@@ -48,9 +48,11 @@ Stm32LongPushSwitch::~Stm32LongPushSwitch()
     }
 }
 
-void Stm32LongPushSwitch::set_event_callback(void (*call_back_func)())
+void Stm32LongPushSwitch::set_event_callback(void (*callback_func)())
 {
+    callback_func_ = callback_func;
     
+    return;
 }
 
 void Stm32LongPushSwitch::interrupt_handler()
