@@ -56,7 +56,8 @@ __weak void Stm32LongPushSwitch::event_callback()
 
 void Stm32LongPushSwitch::interrupt_handler()
 {
-    if(last_instance_p_ == nullptr) return;
+    if (last_instance_p_ == nullptr)
+        return;
 
     last_instance_p_->interrupt_routine();
 
@@ -74,10 +75,8 @@ void Stm32LongPushSwitch::set_time_count_param(unsigned int time_count_param)
 
 void Stm32LongPushSwitch::interrupt_routine()
 {
-    if (HAL_GPIO_ReadPin(gpio_port_, gpio_pin_) == switch_state_when_push_)
-    {
-        if (time_count_ >= time_count_param_ && !is_time_out_)
-        {
+    if (HAL_GPIO_ReadPin(gpio_port_, gpio_pin_) == switch_state_when_push_) {
+        if (time_count_ >= time_count_param_ && !is_time_out_) {
             time_count_ = 0;
             event_callback();
             is_time_out_ = 1;

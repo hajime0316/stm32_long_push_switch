@@ -22,7 +22,7 @@ class Stm32LongPushSwitch {
   public:
     Stm32LongPushSwitch(GPIO_TypeDef *, uint16_t, GPIO_PinState, unsigned int);
     ~Stm32LongPushSwitch();
-    void event_callback();      // スイッチ長押しした時に呼ばれる関数
+    void event_callback();           // スイッチ長押しした時に呼ばれる関数
                                      // ユーザーが定義する
     static void interrupt_handler(); // 割り込みハンドラ
                                      // TIM割り込み関数の中でコール
@@ -31,8 +31,8 @@ class Stm32LongPushSwitch {
   private:
     // 全インスタンスにアクセスするためのポインタ．
     // 割り込みルーチンの中で使う．
-    Stm32LongPushSwitch *previous_instance_p_;              // 自身の前に生成されたインスタンスへのポインタ
-                                                            // 前のインスタンスがない場合はnull
+    Stm32LongPushSwitch *previous_instance_p_;    // 自身の前に生成されたインスタンスへのポインタ
+                                                  // 前のインスタンスがない場合はnull
     static Stm32LongPushSwitch *last_instance_p_; // 最後に生成したインスタンスへのポインタ
 
     // interrupt_handler関数から呼び出される関数
