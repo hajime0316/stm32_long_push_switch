@@ -69,10 +69,11 @@ void Stm32LongPushSwitch::interrupt_routine()
 {
     if (HAL_GPIO_ReadPin(gpio_port_, gpio_pin_) == switch_state_when_push_)
     {
-        if (time_count_ >= time_count_param_)
+        if (time_count_ >= time_count_param_ && !is_time_out_)
         {
             time_count_ = 0;
             event_callback();
+            is_time_out_ = 1;
         }
         else {
             time_count_++;
@@ -80,5 +81,6 @@ void Stm32LongPushSwitch::interrupt_routine()
     }
     else {
         time_count_ = 0;
+        is_time_out_ = 1;
     }
 }
