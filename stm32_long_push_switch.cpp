@@ -18,6 +18,7 @@ Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_
     switch_state_when_push_ = switch_state_when_push;
     time_count_ = 0;
     is_time_out_ = 0;
+    callback_func_ = default_callback_func;
 
     // pointerの初期化
     previous_instance_p_ = last_instance_p_;
