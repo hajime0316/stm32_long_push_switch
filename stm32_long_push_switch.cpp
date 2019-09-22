@@ -94,6 +94,10 @@ void Stm32LongPushSwitch::interrupt_routine()
         is_time_out_ = 0;
     }
 
+    if (previous_instance_p_ == nullptr) return;
+    
+    previous_instance_p_->interrupt_routine();
+
     return;
 }
 
