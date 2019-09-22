@@ -7,17 +7,20 @@
 
 #include "stm32_long_push_switch.hpp"
 
+void default_callback_func();
+
 Stm32LongPushSwitch *Stm32LongPushSwitch::last_instance_p_ = nullptr;
 
 Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_pin, GPIO_PinState switch_state_when_push, unsigned int time_count_param)
 {
     // 内部変数の初期化
     gpio_port_ = gpio_port;
-    gpio_port_ = gpio_port;
+    gpio_pin_ = gpio_pin;
     time_count_param_ = time_count_param;
     switch_state_when_push_ = switch_state_when_push;
     time_count_ = 0;
     is_time_out_ = 0;
+    callback_func_ = default_callback_func;
 
     // pointerの初期化
     previous_instance_p_ = last_instance_p_;
@@ -92,4 +95,10 @@ void Stm32LongPushSwitch::interrupt_routine()
     }
 
     return;
+}
+
+// Static function
+void defualt_callback_func() {
+    // デフォルトでは何もしない
+    // ユーザーで定義してset_event_callback関数で上書き
 }
