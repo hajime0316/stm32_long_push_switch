@@ -13,7 +13,7 @@ Stm32LongPushSwitch::Stm32LongPushSwitch(GPIO_TypeDef *gpio_port, uint16_t gpio_
 {
     // 内部変数の初期化
     gpio_port_ = gpio_port;
-    gpio_port_ = gpio_port;
+    gpio_pin_ = gpio_pin;
     time_count_param_ = time_count_param;
     switch_state_when_push_ = switch_state_when_push;
     time_count_ = 0;
