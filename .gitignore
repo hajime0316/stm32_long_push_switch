@@ -1,4 +1,4 @@
 *
 !.gitignore
-!stm32_long_press_switch.cpp
-!stm32_long_press_switch.hpp
+!stm32_long_push_switch.cpp
+!stm32_long_push_switch.hpp
