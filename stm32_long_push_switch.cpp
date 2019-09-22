@@ -54,14 +54,13 @@ Stm32LongPushSwitch::~Stm32LongPushSwitch()
 void Stm32LongPushSwitch::set_event_callback(void (*callback_func)())
 {
     callback_func_ = callback_func;
-    
+
     return;
 }
 
 void Stm32LongPushSwitch::interrupt_handler()
 {
-    if (last_instance_p_ == nullptr)
-        return;
+    if (last_instance_p_ == nullptr) return;
 
     last_instance_p_->interrupt_routine();
 
@@ -95,14 +94,15 @@ void Stm32LongPushSwitch::interrupt_routine()
     }
 
     if (previous_instance_p_ == nullptr) return;
-    
+
     previous_instance_p_->interrupt_routine();
 
     return;
 }
 
 // Static function
-void defualt_callback_func() {
+void defualt_callback_func()
+{
     // デフォルトでは何もしない
     // ユーザーで定義してset_event_callback関数で上書き
 }
