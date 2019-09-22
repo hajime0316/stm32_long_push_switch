@@ -101,7 +101,7 @@ void Stm32LongPushSwitch::interrupt_routine()
 }
 
 // Static function
-void defualt_callback_func()
+void default_callback_func()
 {
     // デフォルトでは何もしない
     // ユーザーで定義してset_event_callback関数で上書き
